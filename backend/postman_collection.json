@@ -1,0 +1,520 @@
+{
+  "info": {
+    "name": "Food Order System API",
+    "description": "Complete API collection for Food Ordering System",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Auth",
+      "item": [
+        {
+          "name": "Register",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"John Doe\",\n  \"email\": \"john@example.com\",\n  \"password\": \"Test123!@\",\n  \"password_confirmation\": \"Test123!@\", \n \"date_of_birth\": \"2000-12-12\",\n  \"phone\": \"081234567890\"\n}"
+            },
+            "url": {
+              "raw": "http://backend.test/api/register",
+              "protocol": "http",
+              "host": ["backend.test"],
+              "port": "9001",
+              "path": ["api", "register"]
+            }
+          }
+        },
+        {
+          "name": "Login",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"john@example.com\",\n  \"password\": \"Test123!@\"\n}"
+            },
+            "url": {
+              "raw": "http://backend.test/api/login",
+              "protocol": "http",
+              "host": ["backend.test"],
+              "port": "9001",
+              "path": ["api", "login"]
+            }
+          }
+        },
+        {
+          "name": "Forgot Password",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"john@example.com\"\n}"
+            },
+            "url": {
+              "raw": "http://backend.test/api/forgot-password",
+              "protocol": "http",
+              "host": ["backend.test"],
+              "port": "9001",
+              "path": ["api", "forgot-password"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Food Types",
+      "item": [
+        {
+          "name": "Get All Food Types",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://backend.test/api/food-types",
+              "protocol": "http",
+              "host": ["backend.test"],
+              "port": "9001",
+              "path": ["api", "food-types"]
+            }
+          }
+        },
+        {
+          "name": "Admin - Create Food Type",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{TOKEN}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Breakfast\",\n  \"description\": \"Morning dishes\",\n  \"start_time\": \"06:00\",\n  \"end_time\": \"11:00\"\n}"
+            },
+            "url": {
+              "raw": "http://backend.test/api/admin/food-types",
+              "protocol": "http",
+              "host": ["backend.test"],
+              "port": "9001",
+              "path": ["api", "admin", "food-types"]
+            }
+          }
+        },
+        {
+          "name": "Admin - Update Food Type",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{TOKEN}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Breakfast Updated\",\n  \"description\": \"Updated morning dishes\",\n  \"start_time\": \"06:30\",\n  \"end_time\": \"11:30\"\n}"
+            },
+            "url": {
+              "raw": "http://backend.test/api/admin/food-types/1",
+              "protocol": "http",
+              "host": ["backend.test"],
+              "port": "9001",
+              "path": ["api", "admin", "food-types", "1"]
+            }
+          }
+        },
+        {
+          "name": "Admin - Delete Food Type",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{TOKEN}}"
+              }
+            ],
+            "url": {
+              "raw": "http://backend.test/api/admin/food-types/1",
+              "protocol": "http",
+              "host": ["backend.test"],
+              "port": "9001",
+              "path": ["api", "admin", "food-types", "1"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Foods",
+      "item": [
+        {
+          "name": "Get All Foods",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://backend.test/api/foods",
+              "protocol": "http",
+              "host": ["backend.test"],
+              "port": "9001",
+              "path": ["api", "foods"]
+            }
+          }
+        },
+        {
+          "name": "Get Foods by Type",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://backend.test/api/foods/type/1",
+              "protocol": "http",
+              "host": ["backend.test"],
+              "port": "9001",
+              "path": ["api", "foods", "type", "1"]
+            }
+          }
+        },
+        {
+          "name": "Admin - Create Food",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{TOKEN}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"food_type_id\": 1,\n  \"name\": \"Pancakes\",\n  \"description\": \"Fluffy pancakes with syrup\",\n  \"price\": \"8.99\",\n  \"stock_quantity\": 50\n}"
+            },
+            "url": {
+              "raw": "http://backend.test/api/admin/foods",
+              "protocol": "http",
+              "host": ["backend.test"],
+              "port": "9001",
+              "path": ["api", "admin", "foods"]
+            }
+          }
+        },
+        {
+          "name": "Admin - Update Food",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{TOKEN}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"food_type_id\": 1,\n  \"name\": \"Pancakes Premium\",\n  \"description\": \"Premium fluffy pancakes\",\n  \"price\": \"9.99\",\n  \"stock_quantity\": 40\n}"
+            },
+            "url": {
+              "raw": "http://backend.test/api/admin/foods/1",
+              "protocol": "http",
+              "host": ["backend.test"],
+              "port": "9001",
+              "path": ["api", "admin", "foods", "1"]
+            }
+          }
+        },
+        {
+          "name": "Admin - Delete Food",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{TOKEN}}"
+              }
+            ],
+            "url": {
+              "raw": "http://backend.test/api/admin/foods/1",
+              "protocol": "http",
+              "host": ["backend.test"],
+              "port": "9001",
+              "path": ["api", "admin", "foods", "1"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Cart Items",
+      "item": [
+        {
+          "name": "Get Cart Items",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{TOKEN}}"
+              }
+            ],
+            "url": {
+              "raw": "http://backend.test/api/cart/items",
+              "protocol": "http",
+              "host": ["backend.test"],
+              "port": "9001",
+              "path": ["api", "cart", "items"]
+            }
+          }
+        },
+        {
+          "name": "Add to Cart",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{TOKEN}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"food_id\": 1,\n  \"quantity\": 2,\n  \"additional_notes\": \"Extra sauce\"\n}"
+            },
+            "url": {
+              "raw": "http://backend.test/api/cart/items",
+              "protocol": "http",
+              "host": ["backend.test"],
+              "port": "9001",
+              "path": ["api", "cart", "items"]
+            }
+          }
+        },
+        {
+          "name": "Update Cart Item",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{TOKEN}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"quantity\": 3,\n  \"additional_notes\": \"No onions\"\n}"
+            },
+            "url": {
+              "raw": "http://backend.test/api/cart/items/1",
+              "protocol": "http",
+              "host": ["backend.test"],
+              "port": "9001",
+              "path": ["api", "cart", "items", "1"]
+            }
+          }
+        },
+        {
+          "name": "Remove Cart Item",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{TOKEN}}"
+              }
+            ],
+            "url": {
+              "raw": "http://backend.test/api/cart/items/1",
+              "protocol": "http",
+              "host": ["backend.test"],
+              "port": "9001",
+              "path": ["api", "cart", "items", "1"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Orders",
+      "item": [
+        {
+          "name": "Get My Orders",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{TOKEN}}"
+              }
+            ],
+            "url": {
+              "raw": "http://backend.test/api/orders",
+              "protocol": "http",
+              "host": ["backend.test"],
+              "port": "9001",
+              "path": ["api", "orders"]
+            }
+          }
+        },
+        {
+          "name": "Get Order Details",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{TOKEN}}"
+              }
+            ],
+            "url": {
+              "raw": "http://backend.test/api/orders/1",
+              "protocol": "http",
+              "host": ["backend.test"],
+              "port": "9001",
+              "path": ["api", "orders", "1"]
+            }
+          }
+        },
+        {
+          "name": "Create Order",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{TOKEN}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{}"
+            },
+            "url": {
+              "raw": "http://backend.test/api/orders",
+              "protocol": "http",
+              "host": ["backend.test"],
+              "port": "9001",
+              "path": ["api", "orders"]
+            }
+          }
+        },
+        {
+          "name": "Confirm Order",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{TOKEN}}"
+              }
+            ],
+            "url": {
+              "raw": "http://backend.test/api/orders/1/confirm",
+              "protocol": "http",
+              "host": ["backend.test"],
+              "port": "9001",
+              "path": ["api", "orders", "1", "confirm"]
+            }
+          }
+        },
+        {
+          "name": "Admin - Get All Orders",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{TOKEN}}"
+              }
+            ],
+            "url": {
+              "raw": "http://backend.test/api/admin/orders",
+              "protocol": "http",
+              "host": ["backend.test"],
+              "port": "9001",
+              "path": ["api", "admin", "orders"]
+            }
+          }
+        },
+        {
+          "name": "Admin - Update Order Status",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{TOKEN}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"status\": \"preparing\"\n}"
+            },
+            "url": {
+              "raw": "http://backend.test/api/orders/1/status",
+              "protocol": "http",
+              "host": ["backend.test"],
+              "port": "9001",
+              "path": ["api", "orders", "1", "status"]
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "variable": [
+    {
+      "key": "TOKEN",
+      "value": "",
+      "type": "string"
+    }
+  ]
+}
